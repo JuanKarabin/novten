@@ -2,27 +2,6 @@
 
 Landing page responsive y moderna para Novten, diseñada siguiendo estrictamente la identidad visual corporativa.
 
-## 📋 Estructura del Proyecto
-
-```
-novten/
-├── images/
-│   ├── empresario-laptop.png      # Imagen del profesional con laptop
-│   ├── fondos-18.png              # Fondo azul/blanco (reservado)
-│   ├── fondos-24.png              # Fondo del hero
-│   ├── fondos-29.png              # Fondo oscuro testimonios
-│   ├── joven-empresario.png       # Imagen hero principal
-│   ├── logo-blanco.png            # Logo blanco (footer)
-│   ├── logo-lila.png              # Logo lila (navegación)
-│   ├── n-logo-lila.png            # Logo N lila (card contacto)
-│   └── recurso-n.png              # Elemento decorativo flotante
-├── index.html                      # Estructura HTML5 semántica
-├── styles.css                      # Estilos CSS con variables de diseño
-├── script.js                       # Funcionalidades JavaScript
-├── README.md                       # Documentación del proyecto
-└── CALENDLY-INTEGRATION.md         # Guía de integración de Calendly
-```
-
 ## 🎨 Sistema de Diseño
 
 ### Colores
@@ -205,21 +184,6 @@ novten/
 3. **Acceder:**
    - Abre `http://localhost:8000` en tu navegador
 
-## 📝 Próximos Pasos
-
-- [x] Implementar sección "Nosotros" ✅
-- [x] Implementar sección "Servicios" con cards ✅
-- [x] Implementar sección "Testimonios" con carrusel ✅
-- [x] Implementar sección "Contacto" ✅
-- [x] Agregar footer completo ✅
-- [ ] Integrar link de Calendly (pendiente URL del cliente)
-- [ ] Optimizar imágenes para web (conversión a WebP)
-- [ ] Agregar meta tags para SEO y Open Graph
-- [ ] Implementar animaciones adicionales (scroll reveals)
-- [ ] Agregar Google Analytics o tracking
-- [ ] Testing cross-browser completo
-- [ ] Optimización de performance (Lighthouse)
-- [ ] Agregar redes sociales (opcional)
 
 ## 🎯 Características Destacadas
 

@@ -844,7 +844,7 @@ p, .paragraph {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
-  max-width: 900px;
+  max-width: 980px;
   text-align: center;
   position: relative;
   z-index: 2;
@@ -905,7 +905,7 @@ p, .paragraph {
 }
 
 .nosotros-highlight-text {
-  font-size: clamp(20px, 2.5vw, 26px);
+  font-size: clamp(17px, 2.1vw, 22px);
   font-weight: var(--font-semibold);
   line-height: 1.6;
   color: var(--color-acento);
@@ -916,7 +916,7 @@ p, .paragraph {
 
 .nosotros-highlight-text .text-primary {
   font-weight: var(--font-semibold);
-  font-size: clamp(22px, 2.8vw, 28px);
+  font-size: clamp(18px, 2.3vw, 23px);
   letter-spacing: 0.02em;
 }
 
@@ -930,7 +930,7 @@ p, .paragraph {
 }
 
 .highlight-phrase {
-  font-size: clamp(22px, 2.8vw, 28px);
+  font-size: clamp(18px, 2.3vw, 23px);
   font-weight: var(--font-semibold);
   color: var(--color-principal);
   letter-spacing: 0.02em;
@@ -1274,11 +1274,11 @@ p, .paragraph {
   }
   
   .nosotros-highlight-text {
-    font-size: clamp(18px, 4vw, 22px);
+    font-size: clamp(15px, 3.5vw, 19px);
   }
   
   .nosotros-highlight-text .text-primary {
-    font-size: clamp(19px, 4.5vw, 24px);
+    font-size: clamp(16px, 4vw, 21px);
   }
   
   .nosotros-highlight-animated {
@@ -1288,7 +1288,7 @@ p, .paragraph {
   }
   
   .highlight-phrase {
-    font-size: clamp(19px, 4.5vw, 24px);
+    font-size: clamp(16px, 4vw, 21px);
   }
   
   /* Ocultar recurso decorativo en mobile */
