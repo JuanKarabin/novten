@@ -2671,6 +2671,10 @@ p, .paragraph {
   transition-delay: 0.4s;
 }
 
+.delay-5 {
+  transition-delay: 0.5s;
+}
+
 /* ========================================
    BOTÓN FLOTANTE DE WHATSAPP
    ======================================== */

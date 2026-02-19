@@ -109,8 +109,28 @@ document.addEventListener('DOMContentLoaded', function() {
   const fadeElements = document.querySelectorAll('.fade-in-left, .fade-in-right, .fade-in-up');
   
   fadeElements.forEach(el => {
-    scrollObserver.observe(el);
+    // No observar value-cards individualmente; se animan todas juntas desde el grid
+    if (!el.classList.contains('value-card')) {
+      scrollObserver.observe(el);
+    }
   });
+});
+
+// Observer especial para el grid de valores: añade .visible a todas las cards a la vez
+const valuesGridObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const cards = entry.target.querySelectorAll('.value-card');
+      cards.forEach(card => card.classList.add('visible'));
+    }
+  });
+}, observerOptions);
+
+document.addEventListener('DOMContentLoaded', function() {
+  const valuesGrid = document.querySelector('.nosotros-values-grid');
+  if (valuesGrid) {
+    valuesGridObserver.observe(valuesGrid);
+  }
 });
 
 // ========================================
