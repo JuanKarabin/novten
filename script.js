@@ -58,11 +58,10 @@ navbarOverlay.addEventListener('click', function() {
 });
 
 // ========================================
-// SMOOTH SCROLL
+// SMOOTH SCROLL - Navegación suave a secciones
 // ========================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
-    e.preventDefault();
     const targetId = this.getAttribute('href');
     
     if (targetId === '#') return;
@@ -70,13 +69,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const targetElement = document.querySelector(targetId);
     
     if (targetElement) {
-      const navbarHeight = navbar.offsetHeight;
-      const targetPosition = targetElement.offsetTop - navbarHeight;
-      
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
+      e.preventDefault();
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
       });
+      
+      // Resaltar tarjeta de servicio si viene del footer
+      if (targetId.startsWith('#servicio-') && targetElement.classList.contains('servicio-card')) {
+        targetElement.classList.remove('servicio-card-highlight');
+        void targetElement.offsetWidth; // Fuerza reflow para reiniciar animación
+        targetElement.classList.add('servicio-card-highlight');
+        setTimeout(() => {
+          targetElement.classList.remove('servicio-card-highlight');
+        }, 2500);
+      }
     }
   });
 });

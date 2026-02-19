@@ -61,6 +61,30 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
+}
+
+/* Compensar navbar fijo al hacer scroll a secciones */
+section[id],
+[id^="servicio-"] {
+  scroll-margin-top: 90px;
+}
+
+/* Resaltado temporal al navegar desde el footer */
+.servicio-card-highlight {
+  animation: servicioHighlight 2.5s ease-out forwards;
+}
+
+@keyframes servicioHighlight {
+  0% {
+    box-shadow: 0 0 0 0 rgba(49, 66, 221, 0.6), 0 2px 8px rgba(3, 3, 10, 0.1);
+  }
+  25% {
+    box-shadow: 0 0 0 8px rgba(49, 66, 221, 0.35), 0 12px 40px rgba(49, 66, 221, 0.15);
+  }
+  100% {
+    box-shadow: 0 2px 8px rgba(3, 3, 10, 0.1);
+  }
 }
 
 body {
@@ -289,8 +313,10 @@ p, .paragraph {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(3, 3, 10, 0.3);
   z-index: 999;
   opacity: 0;
@@ -1134,7 +1160,7 @@ p, .paragraph {
 
 .nosotros-values-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-lg);
 }
 
@@ -1255,7 +1281,7 @@ p, .paragraph {
   }
   
   .nosotros-values-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -1568,10 +1594,13 @@ p, .paragraph {
   justify-content: center;
   margin-bottom: var(--spacing-sm);
   color: var(--color-principal);
+  padding: 2px;
+  box-sizing: border-box;
 }
 
 .servicio-icon svg {
   stroke: var(--color-principal);
+  overflow: visible;
 }
 
 /* Título del Servicio */
@@ -2239,7 +2268,7 @@ p, .paragraph {
 
 .contacto-calendly-wrapper {
   width: 100%;
-  min-height: 750px;
+  min-height: 970px;
   padding: var(--spacing-md);
   display: flex;
   align-items: center;
@@ -2279,8 +2308,9 @@ p, .paragraph {
 /* Widget de Calendly (cuando se integre) */
 .calendly-inline-widget {
   width: 100% !important;
-  min-width: 320px !important;
-  height: 700px !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: 920px !important;
   border: none;
   border-radius: 12px;
 }
@@ -2298,7 +2328,7 @@ p, .paragraph {
   }
   
   .contacto-calendly-wrapper {
-    min-height: 600px;
+    min-height: 770px;
   }
 }
 
@@ -2334,7 +2364,7 @@ p, .paragraph {
   }
   
   .contacto-calendly-wrapper {
-    min-height: 500px;
+    min-height: 670px;
   }
 }
 
@@ -2350,7 +2380,7 @@ p, .paragraph {
   }
   
   .contacto-calendly-wrapper {
-    min-height: 450px;
+    min-height: 620px;
   }
 }
 
@@ -2382,7 +2412,7 @@ p, .paragraph {
 }
 
 .footer-logo {
-  width: 120px;
+  width: 175px;
   height: auto;
   margin-bottom: var(--spacing-xs);
 }
@@ -2573,7 +2603,7 @@ p, .paragraph {
 
 @media (max-width: 480px) {
   .footer-logo {
-    width: 100px;
+    width: 140px;
   }
   
   .footer-column-title {
