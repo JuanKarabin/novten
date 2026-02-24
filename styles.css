@@ -2082,40 +2082,64 @@ p, .paragraph {
 
 @media (max-width: 768px) {
   .testimonios {
-    padding: var(--spacing-xl) 0 calc(var(--spacing-xl) + 60px);
+    padding: var(--spacing-xl) 0;
   }
   
   .testimonios-header {
     margin-bottom: var(--spacing-xl);
   }
-  
-  .testimonios-main {
-    padding: var(--spacing-lg);
+
+  /* Ocultar controles e indicadores en mobile */
+  .testimonios-controls,
+  .testimonios-indicators {
+    display: none;
   }
-  
+
+  /* Igualar tamaño de todas las cards */
+  .testimonios-main,
+  .testimonio-card-small {
+    padding: var(--spacing-lg);
+    border-radius: 20px;
+    min-height: unset;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  /* Misma tipografía para las 3 */
+  .testimonio-quote-large,
+  .testimonio-quote-small {
+    font-size: 16px;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    display: block;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .testimonio-name-large,
+  .testimonio-name-small {
+    font-size: 15px;
+  }
+
+  .testimonio-role-large,
+  .testimonio-role-small {
+    font-size: 13px;
+  }
+
+  .testimonio-location-large,
+  .testimonio-location-small {
+    font-size: 12px;
+  }
+
+  /* Efecto al tocar: se agranda un poco */
+  .testimonios-main.card-expanded,
+  .testimonio-card-small.card-expanded {
+    transform: scale(1.03);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+    border-color: rgba(49, 66, 221, 0.4);
+  }
+
   .testimonios-sidebar {
     flex-direction: column;
-  }
-  
-  .testimonio-card-small {
-    padding: var(--spacing-md);
-  }
-  
-  .testimonios-controls {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    justify-content: center;
-    margin-top: var(--spacing-lg);
-  }
-  
-  .testimonios-control-btn {
-    width: 48px;
-    height: 48px;
-  }
-  
-  .testimonios-indicators {
-    bottom: -40px;
   }
 }
 

@@ -305,9 +305,27 @@ if (nextBtn) {
   });
 }
 
-// Event listeners para tarjetas pequeñas (click para hacer grande)
+// Toggle expand en mobile, navegación en desktop
+function toggleCardExpand(card) {
+  const allCards = [testimonioMain, testimonioSmall1, testimonioSmall2].filter(Boolean);
+  const isAlreadyExpanded = card.classList.contains('card-expanded');
+  allCards.forEach(c => c.classList.remove('card-expanded'));
+  if (!isAlreadyExpanded) card.classList.add('card-expanded');
+}
+
+function isMobile() {
+  return window.matchMedia('(max-width: 768px)').matches;
+}
+
+if (testimonioMain) {
+  testimonioMain.addEventListener('click', () => {
+    if (isMobile()) { toggleCardExpand(testimonioMain); return; }
+  });
+}
+
 if (testimonioSmall1) {
   testimonioSmall1.addEventListener('click', () => {
+    if (isMobile()) { toggleCardExpand(testimonioSmall1); return; }
     currentTestimonioIndex = (currentTestimonioIndex + 1) % testimoniosData.length;
     updateTestimonios();
   });
@@ -315,6 +333,7 @@ if (testimonioSmall1) {
 
 if (testimonioSmall2) {
   testimonioSmall2.addEventListener('click', () => {
+    if (isMobile()) { toggleCardExpand(testimonioSmall2); return; }
     currentTestimonioIndex = (currentTestimonioIndex + 2) % testimoniosData.length;
     updateTestimonios();
   });
