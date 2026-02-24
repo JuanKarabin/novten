@@ -376,6 +376,19 @@ p, .paragraph {
   gap: var(--spacing-md);
 }
 
+.hero-mobile-logo {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hero-mobile-logo {
+    display: block;
+    width: 60%;
+    opacity: 0.9;
+    margin: -100px 0 15px 0;
+  }
+}
+
 .hero-tag {
   display: inline-flex;
   align-items: center;
@@ -442,7 +455,12 @@ p, .paragraph {
   justify-content: center;
   align-items: center;
   isolation: isolate;
-  margin-top: 10%;
+}
+
+@media (min-width: 769px) {
+  .hero-image {
+    margin-top: 10%;
+  }
 }
 
 .hero-image-wrapper {
