@@ -403,7 +403,6 @@ p, .paragraph {
 
 .hero-description {
   max-width: 580px;
-  margin-bottom: var(--spacing-lg);
 }
 
 .hero-stats {
@@ -443,12 +442,13 @@ p, .paragraph {
   justify-content: center;
   align-items: center;
   isolation: isolate;
+  margin-top: 10%;
 }
 
 .hero-image-wrapper {
   position: relative;
   width: 100%;
-  max-width: 550px;
+  max-width: 460px;
   aspect-ratio: 1;
   border-radius: 20px;
   overflow: hidden;
@@ -474,6 +474,7 @@ p, .paragraph {
   object-position: center;
   position: relative;
   z-index: 2;
+  filter: drop-shadow(0px 8px 18px rgba(0, 0, 0, 0.35));
 }
 
 /* ========================================
@@ -482,9 +483,9 @@ p, .paragraph {
 .circle-container {
   --ring-radius: 140px;
   position: absolute;
-  top: -120px;
-  left: -60px;
-  width: 280px;
+  top: -125px;
+  left: -25px;
+  width: 281px;
   height: 280px;
   display: flex;
   justify-content: center;
