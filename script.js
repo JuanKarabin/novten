@@ -340,68 +340,58 @@ document.addEventListener('DOMContentLoaded', () => {
 // ========================================
 // ANILLO DE TEXTO GIRATORIO 3D
 // ========================================
-function initTextRing() {
-  const ring = document.getElementById('textRing');
-  
+function initSingleRing(ring) {
   if (!ring) return;
-  
+
   const text = ring.innerText;
-  ring.innerText = ''; // Limpiamos el texto original
-  
+  ring.innerText = '';
+
   const chars = text.split('');
-  
-  // Calcular ángulos con espacios más pequeños
+
   let totalAngle = 0;
-  const charAngles = chars.map(char => {
-    // Los espacios ocupan 40% del ángulo de una letra normal
-    return char === ' ' ? 0.4 : 1;
-  });
-  
+  const charAngles = chars.map(char => char === ' ' ? 0.4 : 1);
   const totalWeight = charAngles.reduce((sum, weight) => sum + weight, 0);
   const baseAngle = 360 / totalWeight;
-  
-  // Obtener el radio desde la variable CSS
+
   const container = ring.closest('.circle-container');
   const radius = getComputedStyle(container).getPropertyValue('--ring-radius').trim();
   const radiusValue = parseInt(radius);
-  
+
   chars.forEach((char, i) => {
     const span = document.createElement('span');
     span.innerText = char;
     span.className = 'char';
-    
-    // Cada letra rota sobre el eje Z y se desplaza hacia afuera
     span.style.transform = `
       rotateZ(${totalAngle}deg) 
       translateY(-${radiusValue}px) 
       rotateX(-90deg)
     `;
-    
-    // Incrementar el ángulo según el peso del carácter
     totalAngle += baseAngle * charAngles[i];
-    
     ring.appendChild(span);
   });
 }
 
-// Inicializar el anillo de texto cuando el DOM esté listo
+function initTextRing() {
+  document.querySelectorAll('.text-ring').forEach(ring => {
+    initSingleRing(ring);
+  });
+}
+
+// Inicializar todos los anillos cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
   initTextRing();
 });
 
-// Reinicializar el anillo cuando cambia el tamaño de la ventana
+// Reinicializar todos los anillos cuando cambia el tamaño de la ventana
 let ringResizeTimer;
 window.addEventListener('resize', function() {
   clearTimeout(ringResizeTimer);
   ringResizeTimer = setTimeout(function() {
-    const ring = document.getElementById('textRing');
-    if (ring) {
-      // Guardamos el texto original
+    document.querySelectorAll('.text-ring').forEach(ring => {
       const originalText = ring.textContent;
-      // Reiniciamos
       ring.textContent = originalText;
-      initTextRing();
-    }
+      initSingleRing(ring);
+    });
   }, 250);
 });
 
